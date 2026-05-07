@@ -14,142 +14,170 @@
   --surface: #f4faf7; --surface2: #e8f5ef;
   --border: rgba(29,158,117,0.18); --border2: rgba(29,158,117,0.35);
   --text: #0d1f17; --text2: #3a6650; --text3: #7aaa92;
-  --gold: #c8920a; --gold-bg: #fff8e6; --gold-border: rgba(200,146,10,0.25);
   --r: 16px; --rs: 12px;
 }
 html, body { min-height: 100vh; background: #fff; }
-body { font-family: 'DM Sans', -apple-system, sans-serif; font-size: 18px; color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; background-image: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(29,158,117,0.05) 0%, transparent 60%); }
-.wrap { max-width: 540px; margin: 0 auto; padding: 1.25rem 1.1rem 3.5rem; }
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-image: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(29,158,117,0.05) 0%, transparent 60%);
+}
+.wrap { max-width: 540px; margin: 0 auto; padding: 2rem 1.1rem 3.5rem; }
 
 /* HEADER */
-.hd { text-align: center; padding: 1.75rem 1rem 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-.logo { max-width: 160px; height: auto; display: block; margin: 0 auto 1rem; }
+.hd { text-align: center; padding: 1.5rem 1rem 1.75rem; border-bottom: 1px solid var(--border); margin-bottom: 2.25rem; }
+.logo { max-width: 155px; height: auto; display: block; margin: 0 auto .9rem; }
 .hd-pills { display: flex; align-items: center; justify-content: center; gap: .5rem; flex-wrap: wrap; }
 .pill { display: inline-flex; align-items: center; gap: 5px; background: rgba(29,158,117,0.08); border: 1px solid var(--border2); color: var(--green-dim); font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 99px; }
 .mg-badge { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(29,158,117,0.06); border: 1px solid var(--border); border-radius: var(--rs); padding: .8rem 1rem; margin-top: 1rem; font-size: 15px; font-weight: 700; color: var(--text2); }
 .mg-badge span { color: var(--green-dim); }
 
-/* PROGRESS */
-.prog-wrap { margin-bottom: 2rem; }
-.prog-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: .6rem; }
-.prog-label { font-size: 14px; color: var(--text3); font-weight: 600; letter-spacing: .03em; text-transform: uppercase; }
-.prog-num { font-size: 14px; color: var(--green); font-weight: 700; }
-.prog-bar { height: 7px; background: #dceee5; border-radius: 99px; overflow: hidden; }
-.prog-fill { height: 7px; background: linear-gradient(90deg, var(--green), var(--green-light)); border-radius: 99px; transition: width .5s ease; }
-
-/* STEPS */
-.step { display: none; }
-.step.active { display: block; animation: rise .38s ease; }
-@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-.sbadge { display: inline-block; background: rgba(29,158,117,0.08); border: 1px solid var(--border2); color: var(--green-dim); font-size: 13px; font-weight: 800; padding: 6px 16px; border-radius: 99px; margin-bottom: 1.1rem; letter-spacing: .04em; text-transform: uppercase; }
-.stitle { font-family: 'Bricolage Grotesque', sans-serif; font-size: 34px; font-weight: 800; color: var(--text); line-height: 1.18; margin-bottom: .75rem; }
-.stitle em { font-style: normal; color: var(--green); }
-.ssub { font-size: 19px; color: var(--text2); line-height: 1.6; margin-bottom: 2rem; font-weight: 400; }
+/* PERGUNTA */
+.qtitle {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: .8rem;
+  text-align: center;
+}
+.qtitle em { font-style: normal; color: var(--green); }
+.qsub {
+  font-size: 18px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+  text-align: center;
+}
 
 /* OPTIONS */
-.opts { display: flex; flex-direction: column; gap: .75rem; }
-.ob { display: flex; align-items: center; gap: 16px; padding: 20px 18px; background: #fff; border: 2px solid var(--border); border-radius: var(--r); cursor: pointer; text-align: left; width: 100%; font-family: 'DM Sans', sans-serif; transition: border-color .18s, background .18s; box-shadow: 0 1px 5px rgba(0,0,0,0.06); min-height: 76px; }
-.ob:active { background: var(--surface2); border-color: var(--green); }
-.ob.sel { border-color: var(--green); background: var(--surface2); box-shadow: 0 2px 14px rgba(29,158,117,0.13); }
-.oic { width: 52px; height: 52px; border-radius: 12px; background: rgba(29,158,117,0.08); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 26px; }
+.opts { display: flex; flex-direction: column; gap: .8rem; }
+.ob {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 20px;
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: var(--r);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color .15s, background .15s, transform .1s;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.06);
+  min-height: 80px;
+}
+.ob:active { transform: scale(0.985); }
+.ob.sel {
+  border-color: var(--green);
+  background: var(--surface2);
+  box-shadow: 0 2px 16px rgba(29,158,117,0.15);
+}
+.oic {
+  width: 54px; height: 54px;
+  border-radius: 13px;
+  background: rgba(29,158,117,0.08);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 28px;
+}
+.ob.sel .oic { background: rgba(29,158,117,0.15); border-color: var(--border2); }
 .otx { flex: 1; min-width: 0; }
-.olb { font-size: 19px; font-weight: 700; color: var(--text); line-height: 1.3; }
-.ods { font-size: 15px; color: var(--text3); margin-top: 4px; font-weight: 400; line-height: 1.4; }
-.chk { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #c5d9ce; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background .18s, border-color .18s; }
+.olb { font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.25; }
+.ods { font-size: 15px; color: var(--text3); margin-top: 4px; font-weight: 400; }
+.chk {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid #c5d9ce;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, border-color .15s;
+}
 .ob.sel .chk { background: var(--green); border-color: var(--green); }
-.chk-svg { width: 13px; height: 13px; display: none; }
+.chk-svg { width: 14px; height: 14px; display: none; }
 .ob.sel .chk-svg { display: block; }
 
-/* BUTTON */
-.btn { display: block; width: 100%; padding: 22px; background: linear-gradient(135deg, var(--green-dim), var(--green)); color: #fff; border: none; border-radius: var(--r); font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 700; cursor: pointer; margin-top: 1.5rem; box-shadow: 0 4px 20px rgba(29,158,117,0.25); transition: transform .18s; }
-.btn:active { transform: scale(0.98); }
-.btn:disabled { opacity: .35; cursor: not-allowed; }
+/* LOADING SCREEN */
+.loading-screen {
+  display: none;
+  text-align: center;
+  padding: 3rem 1rem;
+  animation: rise .4s ease;
+}
+.loading-screen.active { display: block; }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-/* FORM */
-.fgrp { margin-bottom: 1.25rem; }
-.flb { display: block; font-size: 14px; color: var(--text2); font-weight: 700; letter-spacing: .03em; text-transform: uppercase; margin-bottom: 9px; }
-.finp, .fsel { display: block; width: 100%; padding: 18px 20px; background: #fff; border: 2px solid #d0e8da; border-radius: var(--rs); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 19px; font-weight: 400; outline: none; transition: border-color .18s; -webkit-appearance: none; appearance: none; }
-.finp::placeholder { color: #a8c8b6; }
-.finp:focus, .fsel:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(29,158,117,0.1); }
-.fsel { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8'%3E%3Cpath fill='%231D9E75' d='M7 8L0 0h14z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 20px center; padding-right: 44px; cursor: pointer; background-color: #fff; }
-.fsel option { background: #fff; color: #0d1f17; }
-.estado-box { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; background: var(--surface); border: 2px solid var(--border); border-radius: var(--rs); font-size: 19px; color: var(--text2); font-weight: 500; }
-.lock-tag { background: rgba(29,158,117,0.1); border: 1px solid var(--border2); color: var(--green-dim); font-size: 13px; font-weight: 800; padding: 5px 12px; border-radius: 99px; white-space: nowrap; }
-.trust-row { display: flex; flex-wrap: wrap; gap: .75rem; padding: 1.1rem 0 .2rem; }
-.ti { display: flex; align-items: center; gap: 7px; font-size: 15px; color: var(--text3); font-weight: 500; }
-.td { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+.loading-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-dim), var(--green));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 36px;
+  box-shadow: 0 0 0 10px rgba(29,158,117,0.08);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 10px rgba(29,158,117,0.08); }
+  50%       { box-shadow: 0 0 0 18px rgba(29,158,117,0.04); }
+}
 
-/* ═══════════════════════════
-   VIDEO STEP
-═══════════════════════════ */
-.vs-divider { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.5rem; }
-.vs-divider-line { flex: 1; height: 1px; background: var(--border); }
-.vs-divider-txt { font-size: 13px; font-weight: 800; color: var(--text3); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.loading-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px; font-weight: 800;
+  color: var(--text); margin-bottom: .6rem; line-height: 1.2;
+}
+.loading-sub { font-size: 17px; color: var(--text2); font-weight: 400; margin-bottom: 2rem; line-height: 1.55; }
 
-.vs-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; color: var(--text); line-height: 1.18; margin-bottom: .7rem; text-align: center; }
-.vs-title em { font-style: normal; color: var(--green); }
-.vs-sub { font-size: 18px; color: var(--text2); line-height: 1.6; margin-bottom: 1.5rem; text-align: center; font-weight: 400; }
+.progress-bar-wrap { background: #dceee5; border-radius: 99px; height: 10px; overflow: hidden; margin: 0 auto 1rem; max-width: 320px; }
+.progress-bar-fill {
+  height: 10px;
+  background: linear-gradient(90deg, var(--green), var(--green-light));
+  border-radius: 99px;
+  width: 0%;
+  transition: width .3s ease;
+}
+.progress-pct { font-size: 15px; color: var(--text3); font-weight: 700; }
 
-/* MARCIO TAG */
-.marcio-tag { display: flex; align-items: center; gap: 14px; background: var(--gold-bg); border: 1.5px solid var(--gold-border); border-radius: var(--rs); padding: 1rem 1.1rem; margin-bottom: 1.25rem; }
-.marcio-av { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #b87d00, #f5c842); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-.marcio-info {}
-.marcio-name { font-size: 16px; font-weight: 700; color: var(--gold); line-height: 1.2; }
-.marcio-role { font-size: 13px; color: rgba(180,120,0,0.65); font-weight: 500; margin-top: 2px; }
-
-/* VIDEO EMBED */
-.video-wrap { border-radius: var(--r); overflow: hidden; margin-bottom: 1.4rem; background: #000; border: 2px solid var(--border2); }
-
-/* QUOTE */
-.quote-card { background: var(--surface); border-left: 4px solid var(--green); border-radius: 0 var(--rs) var(--rs) 0; padding: 1.1rem 1.2rem; margin-bottom: 1.75rem; }
-.quote-text { font-size: 18px; color: var(--text2); line-height: 1.6; font-style: italic; font-weight: 400; }
-.quote-text strong { color: var(--text); font-style: normal; font-weight: 700; }
-.quote-author { font-size: 14px; color: var(--text3); font-weight: 700; margin-top: .65rem; }
-.quote-author::before { content: '— '; }
-
-.vs-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-bottom: 1.75rem; }
-.vs-ti { display: flex; align-items: center; gap: 7px; font-size: 15px; color: var(--text3); font-weight: 500; }
-.vs-td { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-
-.continue-hint { text-align: center; font-size: 16px; color: var(--text3); margin-bottom: .7rem; }
-
-/* RESULT */
-.r-hero { text-align: center; padding: 1.75rem 0 1.4rem; }
-.r-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--green-dim), var(--green)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 32px; }
-.r-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: .35rem; line-height: 1.2; }
-.r-sub { font-size: 18px; color: var(--text2); font-weight: 400; }
-.eco-card { background: linear-gradient(135deg, rgba(29,158,117,0.08), rgba(29,158,117,0.03)); border: 2px solid var(--border2); border-radius: var(--r); padding: 1.75rem; text-align: center; margin: 1rem 0; }
+.eco-reveal {
+  display: none;
+  background: linear-gradient(135deg, rgba(29,158,117,0.08), rgba(29,158,117,0.03));
+  border: 2px solid var(--border2);
+  border-radius: var(--r);
+  padding: 1.75rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  animation: rise .5s ease;
+}
+.eco-reveal.show { display: block; }
 .eco-lbl { font-size: 14px; color: var(--text2); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem; }
-.eco-val { font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--green); line-height: 1.05; margin-bottom: .25rem; }
+.eco-val {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 60px; font-weight: 800;
+  color: var(--green); line-height: 1.05; margin-bottom: .25rem;
+}
 .eco-desc { font-size: 17px; color: var(--text2); }
-.cemig-tag { display: inline-block; background: rgba(29,158,117,0.07); border: 1px solid var(--border); color: var(--text3); font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 99px; margin-top: .65rem; }
-.stats { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin: 1rem 0; }
-.stat { background: var(--surface); border: 2px solid var(--border); border-radius: var(--rs); padding: 1.1rem; text-align: center; }
-.sv { font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 800; color: var(--green); line-height: 1.1; margin-bottom: 5px; }
-.sl { font-size: 13px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
 
-/* MARCIO PROOF NO RESULT */
-.marcio-proof { display: flex; align-items: flex-start; gap: 14px; background: var(--gold-bg); border: 1.5px solid var(--gold-border); border-radius: var(--rs); padding: 1.1rem 1.2rem; margin: 1rem 0; }
-.mp-av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #b87d00, #f5c842); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-.mp-name { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 3px; }
-.mp-text { font-size: 16px; color: rgba(150,100,0,0.75); line-height: 1.5; font-style: italic; }
-
-.divider { display: flex; align-items: center; gap: .75rem; margin: 1.25rem 0; }
-.dl { flex: 1; height: 1px; background: var(--border); }
-.dt { font-size: 14px; color: var(--text3); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
-.benefits { background: var(--surface); border: 2px solid var(--border); border-radius: var(--r); padding: 1.4rem; margin: 1rem 0; }
-.brow { display: flex; align-items: flex-start; gap: 13px; padding: .75rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-.brow:last-child { border-bottom: none; padding-bottom: 0; }
-.brow:first-child { padding-top: 0; }
-.bico { width: 32px; height: 32px; border-radius: 9px; background: rgba(29,158,117,0.1); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; margin-top: 1px; }
-.btx { font-size: 17px; color: var(--text2); line-height: 1.55; font-weight: 400; }
-.btx strong { color: var(--text); font-weight: 700; }
-.alert-box { display: flex; gap: 11px; background: #fff8e1; border: 1px solid #ffe082; border-radius: var(--rs); padding: 15px 16px; font-size: 16px; color: #7d5a00; margin-bottom: 1rem; line-height: 1.5; }
-.cta-hint { text-align: center; font-size: 17px; color: var(--text3); margin-bottom: .75rem; }
-.wbtn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 22px; background: linear-gradient(135deg, #1aaf58, #25D366); color: #fff; border: none; border-radius: var(--r); font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 6px 26px rgba(37,211,102,0.3); transition: transform .18s; }
+.wbtn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; padding: 22px;
+  background: linear-gradient(135deg, #1aaf58, #25D366);
+  color: #fff; border: none; border-radius: var(--r);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  box-shadow: 0 6px 28px rgba(37,211,102,0.35);
+  transition: transform .18s;
+  margin-top: .5rem;
+  animation: rise .5s ease;
+}
 .wbtn:active { transform: scale(0.98); }
-.fnote { text-align: center; font-size: 14px; color: var(--text3); margin-top: 1.1rem; line-height: 1.65; }
+.fnote { text-align: center; font-size: 14px; color: var(--text3); margin-top: 1rem; line-height: 1.65; }
 </style>
 </head>
 <body>
@@ -166,271 +194,102 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; font-size: 18px; color
     <div class="mg-badge">🌿 Exclusivo para <span>Minas Gerais</span> — via CEMIG</div>
   </div>
 
-  <!-- PROGRESS -->
-  <div class="prog-wrap">
-    <div class="prog-info">
-      <span class="prog-label">Sua simulação</span>
-      <span class="prog-num" id="prog-txt">Etapa 1 de 4</span>
-    </div>
-    <div class="prog-bar"><div class="prog-fill" id="prog" style="width:20%"></div></div>
-  </div>
-
-  <!-- ═══ ETAPA 1 — Valor da conta ═══ -->
-  <div class="step active" id="s1">
-    <span class="sbadge">Etapa 1 de 4</span>
-    <p class="stitle">Quanto você paga de <em>conta de luz</em> por mês?</p>
-    <p class="ssub">A CEMIG cobra caro — e todo mineiro tem direito a pagar menos. Me conta o valor e eu calculo exatamente quanto você economiza.</p>
+  <!-- PERGUNTA -->
+  <div id="quiz-block">
+    <p class="qtitle">Quanto você paga de <em>conta de luz</em> por mês?</p>
+    <p class="qsub">Toque na opção abaixo e veja seu desconto na hora.</p>
     <div class="opts">
-      <button class="ob" onclick="pick(this,'conta','30-80',55,'video')"><div class="oic">💡</div><div class="otx"><div class="olb">R$ 30 – R$ 80</div><div class="ods">Consumo baixo — ainda tem desconto todo mês</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'conta','80-150',115,'video')"><div class="oic">💡</div><div class="otx"><div class="olb">R$ 80 – R$ 150</div><div class="ods">Bom perfil — desconto chega direto na sua fatura</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'conta','150-300',225,'video')"><div class="oic">💡</div><div class="otx"><div class="olb">R$ 150 – R$ 300</div><div class="ods">Perfil ideal — economia expressiva todo mês</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'conta','300-500',400,'video')"><div class="oic">⚡</div><div class="otx"><div class="olb">R$ 300 – R$ 500</div><div class="ods">Alto consumo — economia de uma cesta básica por mês</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'conta','500-800',650,'video')"><div class="oic">⚡</div><div class="otx"><div class="olb">R$ 500 – R$ 800</div><div class="ods">Consumo elevado — grande potencial de economia</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'conta','800+',1000,'video')"><div class="oic">🔥</div><div class="otx"><div class="olb">Acima de R$ 800</div><div class="ods">Potencial máximo — vai economizar muito todo mês</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
+      <button class="ob" onclick="pick(this)">
+        <div class="oic">💡</div>
+        <div class="otx"><div class="olb">R$ 30 – R$ 80</div><div class="ods">Ainda tem desconto todo mês</div></div>
+        <div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div>
+      </button>
+      <button class="ob" onclick="pick(this)">
+        <div class="oic">💡</div>
+        <div class="otx"><div class="olb">R$ 80 – R$ 150</div><div class="ods">Desconto chega direto na sua fatura</div></div>
+        <div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div>
+      </button>
+      <button class="ob" onclick="pick(this)">
+        <div class="oic">💡</div>
+        <div class="otx"><div class="olb">R$ 150 – R$ 300</div><div class="ods">Perfil ideal — economia expressiva</div></div>
+        <div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div>
+      </button>
+      <button class="ob" onclick="pick(this)">
+        <div class="oic">⚡</div>
+        <div class="otx"><div class="olb">R$ 300 – R$ 500</div><div class="ods">Economia de uma cesta básica por mês</div></div>
+        <div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div>
+      </button>
+      <button class="ob" onclick="pick(this)">
+        <div class="oic">⚡</div>
+        <div class="otx"><div class="olb">R$ 500 – R$ 800</div><div class="ods">Grande potencial de economia</div></div>
+        <div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div>
+      </button>
+      <button class="ob" onclick="pick(this)">
+        <div class="oic">🔥</div>
+        <div class="otx"><div class="olb">Acima de R$ 800</div><div class="ods">Potencial máximo de desconto</div></div>
+        <div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div>
+      </button>
     </div>
   </div>
 
-  <!-- ═══ VÍDEO DO MARCIO GARCIA ═══ -->
-  <div class="step" id="svideo">
-
-    <div class="vs-divider">
-      <div class="vs-divider-line"></div>
-      <span class="vs-divider-txt">⭐ Antes de continuar</span>
-      <div class="vs-divider-line"></div>
+  <!-- LOADING + RESULTADO -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-avatar">☀️</div>
+    <p class="loading-title" id="loading-title">Calculando seu desconto...</p>
+    <p class="loading-sub" id="loading-sub">Verificando sua elegibilidade na CEMIG</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="pbar"></div>
     </div>
-
-    <p class="vs-title">Até o <em>Marcio Garcia</em> se surpreendeu com isso</p>
-    <p class="vs-sub">Ator Rede Globo, defensor da sustentabilidade — e cliente iGreen. Veja o que ele descobriu em menos de 1 minuto.</p>
-
-    <div class="marcio-tag">
-      <div class="marcio-av">🎬</div>
-      <div class="marcio-info">
-        <div class="marcio-name">Marcio Garcia</div>
-        <div class="marcio-role">Ator Rede Globo · Cliente iGreen Energy</div>
-      </div>
-    </div>
-
-    <!-- VÍDEO VTURB -->
-    <div class="video-wrap">
-      <vturb-smartplayer id="vid-69fb57dcae1fbc7a91fc235b" style="display:block;margin:0 auto;width:100%"></vturb-smartplayer>
-    </div>
-
-    <div class="quote-card">
-      <p class="quote-text">Bom demais pra ser verdade... Mas funciona. <strong>Você tá esperando o quê?</strong> Faça como eu fiz — escolha a iGreen e aproveite essas vantagens incríveis.</p>
-      <div class="quote-author">Marcio Garcia, após aderir à iGreen</div>
-    </div>
-
-    <div class="vs-trust">
-      <span class="vs-ti"><span class="vs-td"></span>Energia 100% solar</span>
-      <span class="vs-ti"><span class="vs-td"></span>Sem trocar nada na sua casa</span>
-      <span class="vs-ti"><span class="vs-td"></span>Desconto automático todo mês</span>
-    </div>
-
-    <p class="continue-hint">Assistiu? Continue e veja quanto você economiza 👇</p>
-    <button class="btn" onclick="goTo(2)">Quero meu desconto também →</button>
-
-  </div>
-
-  <!-- ═══ ETAPA 2 — Titular ═══ -->
-  <div class="step" id="s2">
-    <span class="sbadge">Etapa 2 de 4</span>
-    <p class="stitle">A conta de luz está <em>no seu nome</em>?</p>
-    <p class="ssub">O desconto é aplicado direto na fatura do titular — sem intermediários, sem burocracia.</p>
-    <div class="opts">
-      <button class="ob" onclick="pick(this,'titular','sim',0,3)"><div class="oic">✅</div><div class="otx"><div class="olb">Sim, está no meu nome</div><div class="ods">Perfeito! Você pode aderir agora mesmo</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'titular','nao',0,3)"><div class="oic">👤</div><div class="otx"><div class="olb">Não, está no nome de outra pessoa</div><div class="ods">Ainda podemos verificar opções para você</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-    </div>
-  </div>
-
-  <!-- ═══ ETAPA 3 — Imóvel ═══ -->
-  <div class="step" id="s3">
-    <span class="sbadge">Etapa 3 de 4</span>
-    <p class="stitle">Qual é o tipo do <em>seu imóvel</em>?</p>
-    <p class="ssub">Residências, comércios e rurais têm condições específicas — vamos encontrar a melhor para você.</p>
-    <div class="opts">
-      <button class="ob" onclick="pick(this,'imovel','residencia',0,4)"><div class="oic">🏠</div><div class="otx"><div class="olb">Residência</div><div class="ods">Casa ou apartamento</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'imovel','comercio',0,4)"><div class="oic">🏪</div><div class="otx"><div class="olb">Comércio ou empresa</div><div class="ods">Loja, escritório, empresa, restaurante</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-      <button class="ob" onclick="pick(this,'imovel','rural',0,4)"><div class="oic">🌱</div><div class="otx"><div class="olb">Rural / Sítio / Chácara</div><div class="ods">Área rural ou propriedade agrícola</div></div><div class="chk"><svg class="chk-svg" viewBox="0 0 12 10" fill="none" stroke="white" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1.5"/></svg></div></button>
-    </div>
-  </div>
-
-  <!-- ═══ ETAPA 4 — Dados ═══ -->
-  <div class="step" id="s4">
-    <span class="sbadge">Quase lá! Etapa 4 de 4</span>
-    <p class="stitle">Onde enviamos <em>sua simulação</em>?</p>
-    <p class="ssub">Sem spam. Um especialista iGreen confirma seu desconto real pelo WhatsApp — igual ao Marcio Garcia fez.</p>
-    <div class="fgrp">
-      <label class="flb" for="inp-nome">Nome completo</label>
-      <input class="finp" id="inp-nome" type="text" placeholder="Como podemos te chamar?" autocomplete="name" oninput="chkForm()">
-    </div>
-    <div class="fgrp">
-      <label class="flb" for="inp-fone">WhatsApp (com DDD)</label>
-      <input class="finp" id="inp-fone" type="tel" placeholder="(31) 99999-9999" autocomplete="tel" oninput="fmtFone(this);chkForm()">
-    </div>
-    <div class="fgrp">
-      <label class="flb">Estado</label>
-      <div class="estado-box">🌿 Minas Gerais (MG)<span class="lock-tag">📍 Fixado</span></div>
-    </div>
-    <div class="fgrp">
-      <label class="flb" for="inp-cidade">Cidade</label>
-      <select class="fsel" id="inp-cidade" onchange="chkForm()">
-        <option value="">Carregando cidades...</option>
-      </select>
-    </div>
-    <div class="trust-row">
-      <span class="ti"><span class="td"></span>Zero custo para aderir</span>
-      <span class="ti"><span class="td"></span>Sem trocar fios</span>
-      <span class="ti"><span class="td"></span>Cancele quando quiser</span>
-      <span class="ti"><span class="td"></span>Desconto automático todo mês</span>
-    </div>
-    <button class="btn" id="btn-ver" disabled onclick="showResult()">Ver minha economia agora →</button>
-  </div>
-
-  <!-- ═══ RESULTADO ═══ -->
-  <div class="step" id="sresult">
-    <div class="r-hero">
-      <div class="r-avatar">☀️</div>
-      <p class="r-title" id="r-title">Você é elegível ao desconto iGreen!</p>
-      <p class="r-sub">Confira o quanto você economiza todo mês</p>
-    </div>
-
-    <div class="alert-box" id="alert-titular" style="display:none"><span>⚠️</span><span>A conta não está no seu nome, mas ainda temos opções. Um especialista vai te orientar pelo WhatsApp.</span></div>
-
-    <div class="eco-card">
-      <p class="eco-lbl">Economia estimada por mês</p>
-      <p class="eco-val" id="eco-mes">—</p>
-      <p class="eco-desc">Com <strong id="pct-val" style="color:var(--green)">—</strong>% de desconto na sua conta CEMIG</p>
-      <span class="cemig-tag">⚡ CEMIG · Minas Gerais</span>
-    </div>
-
-    <div class="stats">
-      <div class="stat"><div class="sv" id="eco-ano">—</div><div class="sl">Em 12 meses</div></div>
-      <div class="stat"><div class="sv" id="eco-5a">—</div><div class="sl">Em 5 anos</div></div>
-      <div class="stat"><div class="sv" id="nova-conta">—</div><div class="sl">Nova conta</div></div>
-      <div class="stat"><div class="sv" id="conta-atual">—</div><div class="sl">Conta atual</div></div>
-    </div>
-
-    <div class="marcio-proof">
-      <div class="mp-av">🎬</div>
-      <div>
-        <div class="mp-name">Marcio Garcia · Cliente iGreen</div>
-        <div class="mp-text">"Você tá esperando o quê? Faça como eu fiz. Escolha a iGreen."</div>
-      </div>
-    </div>
-
-    <div class="divider"><div class="dl"></div><span class="dt">Como funciona</span><div class="dl"></div></div>
-
-    <div class="benefits">
-      <div class="brow"><div class="bico">✅</div><div class="btx"><strong>Sem custo de adesão</strong> — 100% gratuito do início ao fim</div></div>
-      <div class="brow"><div class="bico">🔌</div><div class="btx"><strong>Sem trocar fios ou medidores</strong> — usa a mesma rede da CEMIG</div></div>
-      <div class="brow"><div class="bico">📅</div><div class="btx"><strong>Sem fidelidade</strong> — cancele quando quiser, sem multa</div></div>
-      <div class="brow"><div class="bico">☀️</div><div class="btx"><strong>Energia 100% solar</strong> — você economiza e cuida do planeta</div></div>
-      <div class="brow"><div class="bico">📲</div><div class="btx"><strong>App iGreen Club</strong> — desconto, boleto e cashback na palma da mão</div></div>
-    </div>
-
-    <p class="cta-hint">👇 Fale agora com um especialista e garanta seu desconto</p>
-    <a id="wlink" class="wbtn" href="#" target="_blank" rel="noopener">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      Garantir meu desconto agora
-    </a>
-    <p class="fnote">Atendimento gratuito por especialista certificado iGreen em Minas Gerais.<br>Sem spam · Sem fidelidade · Sem custo algum.</p>
+    <p class="progress-pct" id="pbar-pct">0%</p>
   </div>
 
 </div>
-
-<!-- VTURB PLAYER SCRIPT -->
-<script type="text/javascript">
-  var s = document.createElement("script");
-  s.src = "https://scripts.converteai.net/c8f9e2cd-367d-4fee-8d72-15edc16c2246/players/69fb57dcae1fbc7a91fc235b/v4/player.js";
-  s.async = true;
-  document.head.appendChild(s);
-</script>
-
 <script>
-var WA = '5511988278401';
-var PCT = 0.28;
-var d   = {};
+var WA_LINK = 'https://wa.me/5511988278401?text=Quero%20desconto%20na%20conta%20de%20luz';
 
-function pick(btn, key, val, base, next) {
-  btn.closest('.opts').querySelectorAll('.ob').forEach(function(b) { b.classList.remove('sel'); });
+function pick(btn) {
+  document.querySelectorAll('.ob').forEach(function(b) { b.classList.remove('sel'); });
   btn.classList.add('sel');
-  d[key] = val;
-  if (base) d.base = base;
-  setTimeout(function() { goTo(next); }, 300);
+  setTimeout(function() {
+    document.getElementById('quiz-block').style.display = 'none';
+    document.getElementById('loading-screen').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    runLoading();
+  }, 350);
 }
 
-function goTo(n) {
-  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
-  var id = n === 'video' ? 'svideo' : n === 'result' ? 'sresult' : 's' + n;
-  document.getElementById(id).classList.add('active');
-  var pcts  = { 1:20, video:35, 2:55, 3:75, 4:90, result:100 };
-  var labels = { 1:'Etapa 1 de 4', video:'Vídeo especial ✦', 2:'Etapa 2 de 4', 3:'Etapa 3 de 4', 4:'Etapa 4 de 4', result:'Simulação concluída ✓' };
-  document.getElementById('prog').style.width  = (pcts[n]  || 20) + '%';
-  document.getElementById('prog-txt').textContent = labels[n] || '';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function runLoading() {
+  var steps = [
+    { pct: 20,  title: 'Calculando seu desconto...',       sub: 'Verificando sua elegibilidade na CEMIG' },
+    { pct: 45,  title: 'Consultando fazendas solares...',  sub: 'Encontrando a melhor opção para você' },
+    { pct: 70,  title: 'Quase pronto...',                  sub: 'Confirmando o percentual de desconto' },
+    { pct: 90,  title: 'Finalizando simulação...',         sub: 'Só mais um segundo!' },
+    { pct: 100, title: 'Pronto! 🎉',                       sub: 'Seu desconto foi calculado com sucesso' },
+  ];
+
+  var i = 0;
+  var bar   = document.getElementById('pbar');
+  var pct   = document.getElementById('pbar-pct');
+  var title = document.getElementById('loading-title');
+  var sub   = document.getElementById('loading-sub');
+
+  function nextStep() {
+    if (i >= steps.length) {
+      window.location.href = WA_LINK;
+      return;
+    }
+
+    var s = steps[i];
+    bar.style.width   = s.pct + '%';
+    pct.textContent   = s.pct + '%';
+    title.textContent = s.title;
+    sub.textContent   = s.sub;
+    i++;
+    setTimeout(nextStep, 500);
+  }
+
+  nextStep();
 }
-
-function fmtFone(el) {
-  var v = el.value.replace(/\D/g, '');
-  if (v.length > 11) v = v.slice(0, 11);
-  if (v.length > 7)  v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
-  else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
-  el.value = v;
-}
-
-function chkForm() {
-  var ok = document.getElementById('inp-nome').value.trim().length > 2
-        && document.getElementById('inp-fone').value.replace(/\D/g,'').length >= 10
-        && document.getElementById('inp-cidade').value !== '';
-  document.getElementById('btn-ver').disabled = !ok;
-}
-
-function fmt(v) { return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); }
-
-function showResult() {
-  d.nome   = document.getElementById('inp-nome').value.trim();
-  d.fone   = document.getElementById('inp-fone').value;
-  d.cidade = document.getElementById('inp-cidade').value;
-  var base  = d.base || 150;
-  var eco   = Math.round(base * PCT);
-  var nova  = base - eco;
-  var first = d.nome.split(' ')[0];
-  document.getElementById('r-title').textContent     = first + ', você economiza ' + fmt(eco) + ' todo mês!';
-  document.getElementById('eco-mes').textContent     = fmt(eco);
-  document.getElementById('eco-ano').textContent     = fmt(eco * 12);
-  document.getElementById('eco-5a').textContent      = fmt(eco * 60);
-  document.getElementById('pct-val').textContent     = Math.round(PCT * 100);
-  document.getElementById('nova-conta').textContent  = fmt(nova) + '/mês';
-  document.getElementById('conta-atual').textContent = fmt(base) + '/mês';
-  if (d.titular === 'nao') document.getElementById('alert-titular').style.display = 'flex';
-  var f  = {'30-80':'R$30–80','80-150':'R$80–150','150-300':'R$150–300','300-500':'R$300–500','500-800':'R$500–800','800+':'Acima de R$800'};
-  var im = {'residencia':'Residência','comercio':'Comércio','rural':'Rural/Sítio'};
-  var msg = '🌱 Olá! Assisti ao vídeo do Marcio Garcia e simulei meu desconto no quiz iGreen.\n\n'
-    + '👤 *Nome:* ' + d.nome + '\n'
-    + '📍 *Cidade:* ' + d.cidade + ' - MG\n'
-    + '🔌 *Distribuidora:* CEMIG\n'
-    + '💰 *Conta média:* ' + (f[d.conta]||d.conta) + '\n'
-    + '🏠 *Imóvel:* ' + (im[d.imovel]||'-') + '\n'
-    + '📋 *Titular:* ' + (d.titular==='sim'?'Sim':'Não') + '\n\n'
-    + '💡 *Economia estimada:* ' + fmt(eco) + '/mês (' + Math.round(PCT*100) + '% de desconto)\n\nPode me ajudar com o cadastro?';
-  document.getElementById('wlink').href = 'https://wa.me/5511988278401?text=Quero%20desconto%20na%20conta%20de%20luz';
-  goTo('result');
-}
-
-fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/municipios?orderBy=nome')
-  .then(function(r) { return r.json(); })
-  .then(function(list) {
-    var sel = document.getElementById('inp-cidade');
-    sel.innerHTML = '<option value="">Selecione sua cidade</option>';
-    list.forEach(function(m) {
-      var o = document.createElement('option');
-      o.value = m.nome; o.textContent = m.nome;
-      sel.appendChild(o);
-    });
-  })
-  .catch(function() {
-    document.getElementById('inp-cidade').innerHTML = '<option value="">Erro ao carregar — recarregue</option>';
-  });
 </script>
 </body>
 </html>
